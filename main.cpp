@@ -10,6 +10,22 @@
 
 using namespace std;
 
+void PrintSorted(vector<Player>& v)
+{
+    for (int j = 0; j < (int)v.size(); ++j) {
+        for (int i = 0; i < (int)v.size() - j - 1; ++i) {
+            if (v[i].get_count() < v[i + 1].get_count() || (v[i].get_count() == v[i + 1].get_count() && (v[i].get_name() > v[i + 1].get_name()))) {
+                Player tempObj = v[i];
+                v[i] = v[i + 1];     
+                v[i + 1] = tempObj;
+            }
+        }
+    }
+    for(int i=0; i<(int)v.size(); i++) cout<<v[i].get_name()<<" played "<<v[i].get_count() <<" years for "<<v[i].get_team() <<endl;
+}
+
+
+
 int main(int argc, char** argv){
     
     ifstream inputfile;
@@ -98,8 +114,25 @@ int main(int argc, char** argv){
             i++;
         }
     }
-    // cout << "Sorted: "<<endl;
-    // int i=0;
-    // while(i<(int)play.size()){cout<<play[i].get_name()<<","<<play[i].get_team() <<","<<play[i].get_year() <<endl; i++;}
+
+    if(in != "" && da == "" && sa == "" && te != ""){
+        vector<Player> p;
+        bool flag = true;
+        for(long int i=0; i<(int)play.size();i++){
+            flag = true;
+            if (play.at(i).get_team() != te) continue;
+            for(long int j=0; j<(int)p.size();j++){
+                if(play.at(i).get_name() == p.at(j).get_name() && play.at(i).get_team() == p.at(j).get_team()) {p.at(j).inc_count(); flag = false; break;}
+            }
+            if(flag){
+                play.at(i).set_count();
+                p.push_back(play.at(i));
+            }
+        }
+        PrintSorted(p);
+    }
+
+    //Casse 4 will be done
+
 }
 
