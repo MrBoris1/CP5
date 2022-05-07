@@ -13,6 +13,6 @@ class Graph{
 
     public:
         Graph(int Vertices);
-        void addEdge(int v, int w);
+        void addEdge(int v, Player w);
         void BFS(int s); 
 };
