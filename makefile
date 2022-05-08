@@ -25,14 +25,20 @@ OBJ = obj
 
 all: $(BIN)/$(EXE)
 
-$(BIN)/$(EXE): $(OBJ)/Player.o $(OBJ)/main.o
-	$(CC) $(FLAGS) $(OBJ)/Player.o $(OBJ)/main.o -o $@
+$(BIN)/$(EXE): $(OBJ)/Player.o $(OBJ)/main.o $(OBJ)/PlayerNode.o $(OBJ)/Hash.o
+	$(CC) $(FLAGS) $(OBJ)/Player.o $(OBJ)/main.o $(OBJ)/PlayerNode.o $(OBJ)/Hash.o -o $@
 
 $(OBJ)/main.o: main.cpp Parser.h 
 	$(CC) $(FLAGS) -c main.cpp -o $@
 
+$(OBJ)/Hash.o: Hash.cpp Hash.h
+	$(CC) $(FLAGS) -c Hash.cpp -o $@
+
 $(OBJ)/Player.o: Player.cpp Player.h
 	$(CC) $(FLAGS) -c Player.cpp -o $@
+
+$(OBJ)/PlayerNode.o: PlayerNode.cpp PlayerNode.h BST.h
+	$(CC) $(FLAGS) -c PlayerNode.cpp -o $@
 
 
 # fans: fans.cpp Binary_Tree.h DLL.h fans.h Email.h phone.h g++ -Wall -Wextra -g fans.cpp Email.cpp phone.cpp -o bin/fans

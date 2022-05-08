@@ -5,23 +5,23 @@
 #include <vector>
 #include <fstream>
 #include <bits/stdc++.h>
-#include "Player.h"
 #include "Parser.h"
+#include "Hash.h"
 
 using namespace std;
 
-void PrintSorted(vector<Player>& v)
+void PrintSorted(vector<PlayerNode>& v)
 {
     for (int j = 0; j < (int)v.size(); ++j) {
         for (int i = 0; i < (int)v.size() - j - 1; ++i) {
-            if (v[i].get_count() < v[i + 1].get_count() || (v[i].get_count() == v[i + 1].get_count() && (v[i].get_name() > v[i + 1].get_name()))) {
-                Player tempObj = v[i];
+            if (v[i].get_dis() < v[i + 1].get_dis() || (v[i].get_dis() == v[i + 1].get_dis() && (v[i].get_p().get_name() > v[i + 1].get_p().get_name()))) {
+                PlayerNode tempObj = v[i];
                 v[i] = v[i + 1];     
                 v[i + 1] = tempObj;
             }
         }
     }
-    for(int i=0; i<(int)v.size(); i++) cout<<v[i].get_name()<<" played "<<v[i].get_count() <<" years for "<<v[i].get_team() <<endl;
+    for(int i=0; i<(int)v.size(); i++) cout<<v[i].get_p().get_name()<<" played "<<v[i].get_dis() <<" years for "<<v[i].get_p().get_team() <<endl;
 }
 
 
@@ -35,7 +35,7 @@ int main(int argc, char** argv){
     string da ="";
     string sa ="";
     string in ="";
-    vector<Player> play;
+    Hash play;
     Player t;
 
     while(pind = optind, (opt=getopt(argc, argv, "i:s:d:t:"))!=-1){
@@ -82,7 +82,7 @@ int main(int argc, char** argv){
     if(inputfile.is_open()){
         while(getline(inputfile, line)){
             Parser command(line);
-            play.push_back(Player(command.getArg1(),command.getArg3(),command.getArg2()));
+            play.insert(PlayerNode(Player(command.getArg1(),command.getArg3(),command.getArg2())));
         }  
     }
     else{cout<<"File not found"<<endl;}
@@ -90,42 +90,42 @@ int main(int argc, char** argv){
     
     if(in != "" && da == "" && sa == "" && te == ""){
         int i=0;
-        while(i<(int)play.size()){cout<<play[i].get_name()<<","<<play[i].get_team() <<","<<play[i].get_year() <<endl; i++;}
+        while(i<(play.get_size())) { cout<<play.at(i).get_p().get_name()<<","<<play.at(i).get_p().get_team() <<","<<play.at(i).get_p().get_year() <<endl; i++;}
     }
 
     if(in != "" && da == "" && sa != "" && te == ""){
-        sort(play.begin(), play.end());
+        //sort(play.begin(), play.end());
         int i=0;
-        while(i<(int)play.size()){
-            if(play[i].get_name() == sa){
-                cout<<play[i].get_name()<<" played for the "<<play[i].get_year() <<" "<<play[i].get_team() <<endl; 
+        while(i<play.get_size()){
+            if(play.at(i).get_p().get_name() == sa){
+                cout<<play.at(i).get_p().get_name()<<" played for the "<<play.at(i).get_p().get_year() <<" "<<play.at(i).get_p().get_team() <<endl; 
             }
             i++;
         }
     }
 
     if(in != "" && da == "" && sa != "" && te != ""){
-        sort(play.begin(), play.end());
+        //sort(play.begin(), play.end());
         int i=0;
-        while(i<(int)play.size()){
-            if(play[i].get_name() == sa && play[i].get_team() == te){
-                cout<<play[i].get_name()<<" played for the "<<play[i].get_year() <<" "<<play[i].get_team() <<endl; 
+        while(i<play.get_size()){
+            if(play.at(i).get_p().get_name() == sa && play.at(i).get_p().get_team() == te){
+                cout<<play.at(i).get_p().get_name()<<" played for the "<<play.at(i).get_p().get_year() <<" "<<play.at(i).get_p().get_team() <<endl; 
             }
             i++;
         }
     }
 
     if(in != "" && da == "" && sa == "" && te != ""){
-        vector<Player> p;
+        vector<PlayerNode> p;
         bool flag = true;
-        for(long int i=0; i<(int)play.size();i++){
+        for(long int i=0; i<play.get_size();i++){
             flag = true;
-            if (play.at(i).get_team() != te) continue;
+            if (play.at(i).get_p().get_team() != te) continue;
             for(long int j=0; j<(int)p.size();j++){
-                if(play.at(i).get_name() == p.at(j).get_name() && play.at(i).get_team() == p.at(j).get_team()) {p.at(j).inc_count(); flag = false; break;}
+                if(play.at(i).get_p().get_name() == p.at(j).get_p().get_name() && play.at(i).get_p().get_team() == p.at(j).get_p().get_team()) {p.at(j).inc_dis(); flag = false; break;}
             }
             if(flag){
-                play.at(i).set_count();
+                play.at(i).set_dis(1);
                 p.push_back(play.at(i));
             }
         }
