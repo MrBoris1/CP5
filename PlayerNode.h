@@ -10,12 +10,15 @@ class PlayerNode{
         Player p;
         string color;
         int dis;
+        int at;
         Player* prev;
         BST<PlayerNode> bb;
     
     public:
         PlayerNode(Player p);
         PlayerNode();
+        void set_at(int i);
+        int get_at();
         Player get_p();
         void set_dis(int i);
         void inc_dis();

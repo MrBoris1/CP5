@@ -13,12 +13,16 @@ PlayerNode::PlayerNode(Player p){
 PlayerNode::PlayerNode(){
     this->p=Player();
     dis=-1;
+    at=-1;
     prev=nullptr;
 }
 
 Player PlayerNode::get_p(){
     return p;
 }
+
+void PlayerNode :: set_at(int i){ at= i;}
+int PlayerNode :: get_at(){ return at;}
 
 void PlayerNode::set_dis(int i){
     this->dis=i;

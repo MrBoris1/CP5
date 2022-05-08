@@ -1,0 +1,10 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/bturgay1/cs240/CP5'
+g++ -Wall -Wextra -g -c Player.cpp -o obj/Player.o
+ 
+g++ -Wall -Wextra -g -c main.cpp -o obj/main.o
+g++ -Wall -Wextra -g -c PlayerNode.cpp -o obj/PlayerNode.o
+g++ -Wall -Wextra -g -c Hash.cpp -o obj/Hash.o
+g++ -Wall -Wextra -g obj/Player.o obj/main.o obj/PlayerNode.o obj/Hash.o -o bin/main
+make: Leaving directory '/home/bturgay1/cs240/CP5'
+ 

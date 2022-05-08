@@ -10,18 +10,32 @@
 
 using namespace std;
 
-void PrintSorted(vector<PlayerNode>& v)
-{
-    for (int j = 0; j < (int)v.size(); ++j) {
-        for (int i = 0; i < (int)v.size() - j - 1; ++i) {
-            if (v[i].get_dis() < v[i + 1].get_dis() || (v[i].get_dis() == v[i + 1].get_dis() && (v[i].get_p().get_name() > v[i + 1].get_p().get_name()))) {
-                PlayerNode tempObj = v[i];
-                v[i] = v[i + 1];     
-                v[i + 1] = tempObj;
+void PrintSorted(vector<PlayerNode>& v,int c){
+    switch(c){
+    case 1:
+        for (int j = 0; j < (int)v.size(); ++j) {
+            for (int i = 0; i < (int)v.size() - j - 1; ++i) {
+                if (v[i].get_p().get_year()>v[i].get_p().get_year()){
+                    PlayerNode tempObj = v[i];
+                    v[i] = v[i + 1];     
+                    v[i + 1] = tempObj;
+                }
             }
         }
+        for(int i=0; i<(int)v.size(); i++) cout<<v[i].get_p().get_name()<<" played for the "<< v[i].get_p().get_year()<<" "<<v[i].get_p().get_team() <<endl;
+        break;
+    case 2:
+        for (int j = 0; j < (int)v.size(); ++j) {
+            for (int i = 0; i < (int)v.size() - j - 1; ++i) {
+                if (v[i].get_dis() < v[i + 1].get_dis() || (v[i].get_dis() == v[i + 1].get_dis() && (v[i].get_p().get_name() > v[i + 1].get_p().get_name()))) {
+                    PlayerNode tempObj = v[i];
+                    v[i] = v[i + 1];     
+                    v[i + 1] = tempObj;
+                }
+            }
+        }
+        for(int i=0; i<(int)v.size(); i++) cout<<v[i].get_p().get_name()<<" played "<<v[i].get_dis() <<" years for "<<v[i].get_p().get_team() <<endl;
     }
-    for(int i=0; i<(int)v.size(); i++) cout<<v[i].get_p().get_name()<<" played "<<v[i].get_dis() <<" years for "<<v[i].get_p().get_team() <<endl;
 }
 
 
@@ -90,29 +104,33 @@ int main(int argc, char** argv){
     
     if(in != "" && da == "" && sa == "" && te == ""){
         int i=0;
-        while(i<(play.get_size())) { cout<<play.at(i).get_p().get_name()<<","<<play.at(i).get_p().get_team() <<","<<play.at(i).get_p().get_year() <<endl; i++;}
+        while(i<(play.get_size())) {cout<<play.aat(i).get_p().get_name()<<","<<play.aat(i).get_p().get_team() <<","<<play.aat(i).get_p().get_year() <<endl; i++;}
     }
 
     if(in != "" && da == "" && sa != "" && te == ""){
-        //sort(play.begin(), play.end());
-        int i=0;
-        while(i<play.get_size()){
-            if(play.at(i).get_p().get_name() == sa){
-                cout<<play.at(i).get_p().get_name()<<" played for the "<<play.at(i).get_p().get_year() <<" "<<play.at(i).get_p().get_team() <<endl; 
-            }
+        vector<PlayerNode> p;
+        int i= play.find(sa).get_at();
+        while(i<play.get_capacity()){
+            if(play.at(i).get_dis()==-1)break;
+            if(play.at(i).get_p().get_name()==sa) p.push_back(play.at(i));
             i++;
         }
+        if(p.size()==0) cout<<sa<<" does not appear in the input file"<<endl;
+        PrintSorted(p,1);
     }
 
     if(in != "" && da == "" && sa != "" && te != ""){
-        //sort(play.begin(), play.end());
-        int i=0;
-        while(i<play.get_size()){
-            if(play.at(i).get_p().get_name() == sa && play.at(i).get_p().get_team() == te){
-                cout<<play.at(i).get_p().get_name()<<" played for the "<<play.at(i).get_p().get_year() <<" "<<play.at(i).get_p().get_team() <<endl; 
-            }
+        vector<PlayerNode> p;
+        int i= play.find(sa).get_at();
+        while(i<play.get_capacity()){
+            if(play.at(i).get_dis()==-1)break;
+            if(play.at(i).get_p().get_name()==sa && play.at(i).get_p().get_team()==te) p.push_back(play.at(i));
             i++;
         }
+        if(p.size()==0) cout<<sa<<" has never played for the "<< te <<endl;
+        /*
+        PrintSorted(p,1);
+        */
     }
 
     if(in != "" && da == "" && sa == "" && te != ""){
@@ -120,16 +138,16 @@ int main(int argc, char** argv){
         bool flag = true;
         for(long int i=0; i<play.get_size();i++){
             flag = true;
-            if (play.at(i).get_p().get_team() != te) continue;
+            if (play.aat(i).get_p().get_team() != te) continue;
             for(long int j=0; j<(int)p.size();j++){
-                if(play.at(i).get_p().get_name() == p.at(j).get_p().get_name() && play.at(i).get_p().get_team() == p.at(j).get_p().get_team()) {p.at(j).inc_dis(); flag = false; break;}
+                if(play.aat(i).get_p().get_name() == p.at(j).get_p().get_name() && play.aat(i).get_p().get_team() == p.at(j).get_p().get_team()) {p.at(j).inc_dis(); flag = false; break;}
             }
             if(flag){
-                play.at(i).set_dis(1);
-                p.push_back(play.at(i));
+                p.push_back(play.aat(i));
+                p.at(p.size()-1).set_dis(1);
             }
         }
-        PrintSorted(p);
+        PrintSorted(p,2);
     }
 
     //Casse 4 will be done
