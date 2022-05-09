@@ -67,7 +67,6 @@ int main(int argc, char** argv){
                     sa = sa + " "+argv[optind];
                     optind++;
                 }
-                // cout << sa << endl;
                 break;
             case 'd':
                 da = optarg;
@@ -75,7 +74,6 @@ int main(int argc, char** argv){
                     da = da + " "+argv[optind];
                     optind++;
                 }
-                // cout << da << endl;
                 break;
             case 't':
                 te = optarg;
@@ -83,7 +81,6 @@ int main(int argc, char** argv){
                     te = te + " "+argv[optind];
                     optind++;
                 }
-                // cout << te << endl;
                 break;
             case '?':
                 cout<< "Unknown command returns: "<<opt<<endl;
@@ -134,9 +131,7 @@ int main(int argc, char** argv){
             i++;
         }
         if(p.size()==0) cout<<sa<<" has never played for the "<< te <<endl;
-        /*
         PrintSorted(p,1);
-        */
     }
 
     if(in != "" && da == "" && sa == "" && te != ""){
@@ -156,7 +151,13 @@ int main(int argc, char** argv){
         PrintSorted(p,2);
     }
 
-    //Casse 4 will be done
+    if(in != "" && da != "" && sa != "" && te == ""){
+        // Case 4A
+    }
+    if(in != "" && da != "" && sa != "" && te != ""){
+        // Case 4B
+    }
+    //Case 4 will be done
 
 }
 

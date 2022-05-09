@@ -22,6 +22,7 @@ class BST {
         void insert(T *x);
 	    void remove(string data); 
         T* search(string data);
+        void inorderPrint(struct node *&node);
         void destroy(struct node *&node);
 };
 #include "BST.cpp"

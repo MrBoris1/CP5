@@ -110,6 +110,15 @@ void BST<T>::destroy(struct node *&node){
 	}
 }
 
+template<typename T>
+void BST<T>::inorderPrint(struct node *&node) {
+    if ( node != NULL ) { 
+        inorderPrint( node->left );  
+        cout << node->data << " ";    
+        inorderPrint( node->right);   
+    }
+}
+
 template <typename T>
 BST<T>::~BST(){
 	destroy(root);
