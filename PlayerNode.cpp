@@ -40,10 +40,17 @@ int PlayerNode::get_dis(){
     return this->dis;
 }
 
-Player* PlayerNode::get_prev(){
+PlayerNode* PlayerNode::get_prev(){
     return this->prev;
 }
 
 BST<PlayerNode>* PlayerNode::get_bb(){
     return &bb;
+}
+
+void PlayerNode::set_color(string s){
+    color=s;
+}
+void PlayerNode::set_prev(PlayerNode* p){
+    prev=p;
 }

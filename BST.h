@@ -2,6 +2,7 @@
 #define BST_H
 #include<iostream>
 #include<stdlib.h>
+#include<vector>
 
 using namespace std;
 
@@ -22,8 +23,11 @@ class BST {
         void insert(T *x);
 	    void remove(string data); 
         T* search(string data);
-        void inorderPrint(struct node *&node);
+        void inorderPrint();
+        void inorderPrintHelper(struct node *&node);
         void destroy(struct node *&node);
+        void BF(vector<T*> &vec);
+        void BFHelper(struct node *&node,vector<T*> &vec);
 };
 #include "BST.cpp"
 #endif

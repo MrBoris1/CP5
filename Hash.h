@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <stdlib.h>
-#include<vector>
 #include "PlayerNode.h"
 using namespace std;
 
@@ -16,6 +15,7 @@ class Hash{
         void insert(PlayerNode pl);
         int get_size();
         int get_capacity();
+        void BFS(PlayerNode* p);
     private:
         int capacity;
         int size;

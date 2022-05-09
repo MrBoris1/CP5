@@ -111,11 +111,16 @@ void BST<T>::destroy(struct node *&node){
 }
 
 template<typename T>
-void BST<T>::inorderPrint(struct node *&node) {
+void BST<T>::inorderPrint() {
+	inorderPrintHelper(root);
+}
+
+template<typename T>
+void BST<T>::inorderPrintHelper(struct node *&node) {
     if ( node != NULL ) { 
-        inorderPrint( node->left );  
-        cout << node->data << " ";    
-        inorderPrint( node->right);   
+        inorderPrintHelper( node->left );  
+        cout << node->data->get_p().get_name() << " ";    
+        inorderPrintHelper( node->right);   
     }
 }
 
@@ -124,7 +129,25 @@ BST<T>::~BST(){
 	destroy(root);
 }
 
+template<typename T>
+void BST<T>::BF(vector<T*> &vec) {
+	BFHelper(root,vec);
+}
 
+template<typename T>
+void BST<T>::BFHelper(struct node *&node, vector<T*> &vec) {
+	if(node!=NULL){
+		BFHelper(node->left,vec);
+
+		if(node->data->get_color()=="White"){
+			node->data->set_color("Gray");
+			node->data->set_prev(root->data);
+			node->data->set_dis(root->data->get_dis()+1);
+			vec.push_back(node->data);
+		}
+		BFHelper(node->right,vec);
+	}
+}
 
 
 

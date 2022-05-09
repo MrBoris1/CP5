@@ -11,7 +11,7 @@ class PlayerNode{
         string color;
         int dis;
         int at;
-        Player* prev;
+        PlayerNode* prev;
         BST<PlayerNode> bb;
     
     public:
@@ -26,7 +26,9 @@ class PlayerNode{
         bool operator<(Player &other);
         bool operator>(Player &other);
         string get_color();
+        void set_color(string s);
+        void set_prev(PlayerNode* p);
         int get_dis();
-        Player* get_prev();
+        PlayerNode* get_prev();
         BST<PlayerNode>* get_bb();
 };

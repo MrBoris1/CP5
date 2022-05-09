@@ -34,7 +34,7 @@ void PrintSorted(vector<PlayerNode>& v,int c){
                 }
             }
         }
-        for(int i=0; i<(int)v.size(); i++) cout<<v[i].get_p().get_name()<<" played "<<v[i].get_dis() <<" years for "<<v[i].get_p().get_team() <<endl;
+        for(int i=0; i<(int)v.size(); i++) {cout<<v[i].get_p().get_name()<<" played "<<v[i].get_dis() <<" years for "<<v[i].get_p().get_team() <<endl;}
     }
 }
 

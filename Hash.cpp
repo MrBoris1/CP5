@@ -62,4 +62,23 @@ int Hash::get_capacity(){
     return capacity;
 }
 
+void Hash :: BFS(PlayerNode* p){
+    for(int i=0; i<get_size();i++){
+        parray[i]->set_color("White");
+        parray[i]->set_dis(-1);
+        p->set_prev(nullptr);
+    }
+    p->set_color("Gray");
+    p->set_dis(0);
+    p->set_prev(nullptr);
+    vector<PlayerNode*>pl;
+    pl.push_back(p);
+    while(pl.size()>0){
+        PlayerNode* t = pl.front();
+        pl.erase(pl.begin());
+        t->get_bb()->BF(pl);
+        t->set_color("Black");
 
+    }
+        
+}
