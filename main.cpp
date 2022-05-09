@@ -95,9 +95,9 @@ int main(int argc, char** argv){
             Parser command(line);
             play.insert(PlayerNode(Player(command.getArg1(),command.getArg3(),command.getArg2())));
             for(int i=0; i<play.get_size()-1; i++){
-                if(play.aat(i).get_p().get_team()==play.aat(play.get_size()-1).get_p().get_team() && play.aat(i).get_p().get_year()==play.aat(play.get_size()-1).get_p().get_year()){
-                    play.aat(i).get_bb()->insert(play.paat(play.get_size()-1));
-                    play.aat(play.get_size()-1).get_bb()->insert(play.paat(i));
+                if(play.paat(i)->get_p().get_team()==play.paat(play.get_size()-1)->get_p().get_team() && play.paat(i)->get_p().get_year()==play.paat(play.get_size()-1)->get_p().get_year()){
+                    play.paat(i)->get_bb()->insert(play.paat(play.get_size()-1));
+                    play.paat(play.get_size()-1)->get_bb()->insert(play.paat(i));
                 }
             } 
         }  
@@ -114,7 +114,7 @@ int main(int argc, char** argv){
         vector<PlayerNode> p;
         int i= play.find(sa)->get_at();
         while(i<play.get_capacity()){
-            if(play.at(i).get_dis()==-1)break;
+            if(!play.at(i).get_nu())break;
             if(play.at(i).get_p().get_name()==sa) p.push_back(play.at(i));
             i++;
         }
@@ -126,7 +126,7 @@ int main(int argc, char** argv){
         vector<PlayerNode> p;
         int i= play.find(sa)->get_at();
         while(i<play.get_capacity()){
-            if(play.at(i).get_dis()==-1)break;
+            if(!play.at(i).get_nu())break;
             if(play.at(i).get_p().get_name()==sa && play.at(i).get_p().get_team()==te) p.push_back(play.at(i));
             i++;
         }
@@ -152,8 +152,8 @@ int main(int argc, char** argv){
     }
 
     if(in != "" && da != "" && sa != "" && te == ""){
-        play.BFS(play.find(da));
-        play.find(sa)->printPath();
+        play.BFS(play.find(sa));
+        play.find(da)->printPath();
 
         // Case 4A
     }

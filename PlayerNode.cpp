@@ -8,12 +8,14 @@ PlayerNode::PlayerNode(Player p){
     this->p=p;
     dis=0;
     prev=nullptr;
+    nu = 1;
 }
 
 PlayerNode::PlayerNode(){
     this->p=Player();
     dis=-1;
     at=-1;
+    nu = 0;
     prev=nullptr;
 }
 
@@ -55,8 +57,13 @@ void PlayerNode::set_prev(PlayerNode* p){
     prev=p;
 }
 
+int PlayerNode::get_nu(){
+    return nu;
+}
+
 void PlayerNode::printPath(){
-    if(prev != nullptr) return;
+    if(!prev->get_nu()) return;
+    
     cout<<p.get_name()<<" played with"<< prev->get_p().get_name()<<" on the "<<p.get_year()<<" "<<p.get_team()<<endl;
-    prev->printPath();
+    // prev->printPath();
 }

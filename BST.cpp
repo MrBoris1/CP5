@@ -136,16 +136,21 @@ void BST<T>::BF(vector<T*> &vec) {
 
 template<typename T>
 void BST<T>::BFHelper(struct node *&node, vector<T*> &vec) {
-	if(node!=NULL){
-		BFHelper(node->left,vec);
+	cout << "PPPPPPPPPPP "<< root->data->get_p().get_name()<<endl;
+	if(node!=nullptr){
+		//cout<< node->data->get_p().get_name()<<endl;
+		
+		if (node->left != nullptr) {BFHelper(node->left,vec);}
 
 		if(node->data->get_color()=="White"){
 			node->data->set_color("Gray");
+			cout << "Hello PP " << root->data->get_nu() << endl;
 			node->data->set_prev(root->data);
 			node->data->set_dis(root->data->get_dis()+1);
 			vec.push_back(node->data);
 		}
-		BFHelper(node->right,vec);
+		if (node->right != nullptr) {BFHelper(node->right,vec);}
+		cout << "KKK" << endl;
 	}
 }
 

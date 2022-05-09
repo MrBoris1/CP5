@@ -10,7 +10,7 @@ Hash::Hash(){
 
 PlayerNode* Hash::find(string name){
     int index = hashcaller(name);
-    while(array[index].get_dis()!=-1){
+    while(array[index].get_nu()){
         if(array[index].get_p().get_name()==name){
             return &(array[index]);
         }
@@ -34,7 +34,7 @@ PlayerNode* Hash::paat(int i){
 
 void Hash :: insert(PlayerNode pl){
     int index = hashcaller(pl.get_p().get_name());
-    while(array[index].get_dis()!=-1){
+    while(array[index].get_nu()){
         index++;
         index%=capacity;
     }
@@ -75,7 +75,9 @@ void Hash :: BFS(PlayerNode* p){
     pl.push_back(p);
     while(pl.size()>0){
         PlayerNode* t = pl.front();
+        //cout << t->get_p().get_name()<<endl;
         pl.erase(pl.begin());
+        // t->get_bb()->inorderPrint();
         t->get_bb()->BF(pl);
         t->set_color("Black");
 
