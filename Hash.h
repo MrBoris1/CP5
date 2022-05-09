@@ -8,7 +8,7 @@ class Hash{
     public:
         Hash();
         int hashcaller(string name);
-        PlayerNode find(string name);
+        PlayerNode* find(string name);
         PlayerNode at(int i);
         PlayerNode aat(int i);
         PlayerNode* paat(int i);

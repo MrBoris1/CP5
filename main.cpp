@@ -112,7 +112,7 @@ int main(int argc, char** argv){
 
     if(in != "" && da == "" && sa != "" && te == ""){
         vector<PlayerNode> p;
-        int i= play.find(sa).get_at();
+        int i= play.find(sa)->get_at();
         while(i<play.get_capacity()){
             if(play.at(i).get_dis()==-1)break;
             if(play.at(i).get_p().get_name()==sa) p.push_back(play.at(i));
@@ -124,7 +124,7 @@ int main(int argc, char** argv){
 
     if(in != "" && da == "" && sa != "" && te != ""){
         vector<PlayerNode> p;
-        int i= play.find(sa).get_at();
+        int i= play.find(sa)->get_at();
         while(i<play.get_capacity()){
             if(play.at(i).get_dis()==-1)break;
             if(play.at(i).get_p().get_name()==sa && play.at(i).get_p().get_team()==te) p.push_back(play.at(i));
@@ -152,9 +152,13 @@ int main(int argc, char** argv){
     }
 
     if(in != "" && da != "" && sa != "" && te == ""){
+        play.BFS(play.find(da));
+        play.find(sa)->printPath();
+
         // Case 4A
     }
     if(in != "" && da != "" && sa != "" && te != ""){
+        
         // Case 4B
     }
     //Case 4 will be done

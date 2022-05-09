@@ -8,16 +8,16 @@ Hash::Hash(){
     this->size=0;
 }
 
-PlayerNode Hash::find(string name){
+PlayerNode* Hash::find(string name){
     int index = hashcaller(name);
     while(array[index].get_dis()!=-1){
         if(array[index].get_p().get_name()==name){
-            return array[index];
+            return &(array[index]);
         }
         index++;
         index%=capacity;
     }
-    return PlayerNode();
+    return nullptr;
 }
 
 PlayerNode Hash::at(int i){

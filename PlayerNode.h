@@ -31,4 +31,5 @@ class PlayerNode{
         int get_dis();
         PlayerNode* get_prev();
         BST<PlayerNode>* get_bb();
+        void printPath();
 };

@@ -54,3 +54,9 @@ void PlayerNode::set_color(string s){
 void PlayerNode::set_prev(PlayerNode* p){
     prev=p;
 }
+
+void PlayerNode::printPath(){
+    if(prev != nullptr) return;
+    cout<<p.get_name()<<" played with"<< prev->get_p().get_name()<<" on the "<<p.get_year()<<" "<<p.get_team()<<endl;
+    prev->printPath();
+}
