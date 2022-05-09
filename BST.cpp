@@ -9,7 +9,7 @@ BST<T>::BST() {
 }
 
 template <typename T>
-void BST<T>::insert(T d){
+void BST<T>::insert(T *d){
 	node* t = new node;
 	node* parent;
 	t->data = d;

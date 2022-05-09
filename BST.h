@@ -8,7 +8,7 @@ using namespace std;
 template <class T> 
 class BST {
     struct node {
-        T data;
+        T *data;
         node *left;
         node *right;   
     };
@@ -19,7 +19,7 @@ class BST {
     public:
         BST();
         ~BST();
-        void insert(T x);
+        void insert(T *x);
 	    void remove(string data); 
         T* search(string data);
         void destroy(struct node *&node);

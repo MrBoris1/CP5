@@ -28,6 +28,10 @@ PlayerNode Hash::aat(int i){
     return *parray[i];
 }
 
+PlayerNode* Hash::paat(int i){
+    return parray[i];
+}
+
 void Hash :: insert(PlayerNode pl){
     int index = hashcaller(pl.get_p().get_name());
     while(array[index].get_dis()!=-1){

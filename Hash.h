@@ -12,6 +12,7 @@ class Hash{
         PlayerNode find(string name);
         PlayerNode at(int i);
         PlayerNode aat(int i);
+        PlayerNode* paat(int i);
         void insert(PlayerNode pl);
         int get_size();
         int get_capacity();

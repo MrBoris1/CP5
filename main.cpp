@@ -97,6 +97,12 @@ int main(int argc, char** argv){
         while(getline(inputfile, line)){
             Parser command(line);
             play.insert(PlayerNode(Player(command.getArg1(),command.getArg3(),command.getArg2())));
+            for(int i=0; i<play.get_size()-1; i++){
+                if(play.aat(i).get_p().get_team()==play.aat(play.get_size()-1).get_p().get_team() && play.aat(i).get_p().get_year()==play.aat(play.get_size()-1).get_p().get_year()){
+                    play.aat(i).get_bb()->insert(play.paat(play.get_size()-1));
+                    play.aat(play.get_size()-1).get_bb()->insert(play.paat(i));
+                }
+            } 
         }  
     }
     else{cout<<"File not found"<<endl;}
