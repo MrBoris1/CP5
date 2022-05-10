@@ -13,10 +13,11 @@ class Hash{
         PlayerNode at(int i);
         PlayerNode aat(int i);
         PlayerNode* paat(int i);
-        int insert(PlayerNode pl);
+        void insert(PlayerNode pl);
         int get_size();
         int get_capacity();
         void BFS(PlayerNode* p);
+        PlayerNode* findN(string name,int i);
     private:
         int capacity;
         int size;

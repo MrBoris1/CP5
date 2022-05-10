@@ -55,7 +55,7 @@ PlayerNode* Hash::paat(int i){
     return parray[i];
 }
 
-int Hash :: insert(PlayerNode pl){
+void Hash :: insert(PlayerNode pl){
     int index = hashcaller(pl.get_p().get_name());
     while(array[index].get_nu()){
         index++;
@@ -64,8 +64,8 @@ int Hash :: insert(PlayerNode pl){
 
     array[index] = pl;
     size++;
+    pl.set_at(index);
     parray.push_back(&(array[index]));
-    return index;
 }
 
 int Hash::hashcaller(string name){
@@ -103,4 +103,18 @@ void Hash :: BFS(PlayerNode* p){
         t->set_color("Black");
     }
         
+}
+
+PlayerNode* Hash::findN(string name,int i){
+    int x=0;
+    int index = hashcaller(name);
+    while(array[index].get_nu()){
+        if(array[index].get_p().get_name()==name){
+            if (x==i) return &(array[index]);
+            x++;
+        }
+        index++;
+        index%=capacity;
+    }
+    return nullptr;
 }

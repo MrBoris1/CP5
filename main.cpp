@@ -93,8 +93,8 @@ int main(int argc, char** argv){
     if(inputfile.is_open()){
         while(getline(inputfile, line)){
             Parser command(line);
-            int ind = play.insert(PlayerNode(Player(command.getArg1(),command.getArg3(),command.getArg2())));
-            play.paat(play.get_size()-1)->set_at(ind);
+            play.insert(PlayerNode(Player(command.getArg1(),command.getArg3(),command.getArg2())));
+            //cout<<play.paat(play.get_size()-1)->get_at()<<endl;
             for(int i=0; i<play.get_size()-1; i++){
                 if(play.paat(i)->get_p().get_team()==play.paat(play.get_size()-1)->get_p().get_team() && play.paat(i)->get_p().get_year()==play.paat(play.get_size()-1)->get_p().get_year()){
                     // cout<<play.paat(i)->get_p().get_name()<<' '<<play.paat(i)->get_p().get_year()<<' '<< play.paat(i)->get_p().get_team()<<play.paat(play.get_size()-1)->get_p().get_name()<<' '<<play.paat(play.get_size()-1)->get_p().get_year()<<' '<< play.paat(play.get_size()-1)->get_p().get_team()<<endl;
@@ -114,16 +114,12 @@ int main(int argc, char** argv){
 
     if(in != "" && da == "" && sa != "" && te == ""){
         vector<PlayerNode> p;
-        int i= play.find(sa)->get_at();
-        cout << i <<endl;
-        while(i<play.get_capacity()){
-            cout<<play.at(i).get_p().get_name()<<endl;
-            if(play.at(i).get_dis()==-1)break;
-            if(play.at(i).get_p().get_name()==sa) p.push_back(play.at(i));
+        int i = 0;
+        while(play.findN(sa,i)){
+            PlayerNode* t = play.findN(sa,i);
+            if(t->get_p().get_name()==sa) p.push_back(*t);
             i++;
-            cout<<i<<endl;
         }
-        cout<<"kjfkjvfhjkfv"<<endl;
         if(p.size()==0) cout<<sa<<" does not appear in the input file"<<endl;
         PrintSorted(p,1);
         
