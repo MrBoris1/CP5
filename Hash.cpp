@@ -43,8 +43,8 @@ void Hash::B(string f,string s){
     }
 }
 
-PlayerNode Hash::at(int i){
-    return array[i];
+PlayerNode* Hash::at(int i){
+    return &(array[i]);
 }
 
 PlayerNode Hash::aat(int i){

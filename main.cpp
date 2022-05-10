@@ -10,31 +10,31 @@
 
 using namespace std;
 
-void PrintSorted(vector<PlayerNode>& v,int c){
+void PrintSorted(vector<PlayerNode*>& v,int c){
     switch(c){
     case 1:
         for (int j = 0; j < (int)v.size(); ++j) {
             for (int i = 0; i < (int)v.size() - j - 1; ++i) {
-                if (v[i].get_p().get_year()>v[i].get_p().get_year()){
-                    PlayerNode tempObj = v[i];
+                if (v[i]->get_p().get_year()>v[i]->get_p().get_year()){
+                    PlayerNode* tempObj = v[i];
                     v[i] = v[i + 1];     
                     v[i + 1] = tempObj;
                 }
             }
         }
-        for(int i=0; i<(int)v.size(); i++) cout<<v[i].get_p().get_name()<<" played for the "<< v[i].get_p().get_year()<<" "<<v[i].get_p().get_team() <<endl;
+        for(int i=0; i<(int)v.size(); i++) cout<<v[i]->get_p().get_name()<<" played for the "<< v[i]->get_p().get_year()<<" "<<v[i]->get_p().get_team() <<endl;
         break;
     case 2:
         for (int j = 0; j < (int)v.size(); ++j) {
             for (int i = 0; i < (int)v.size() - j - 1; ++i) {
-                if (v[i].get_dis() < v[i + 1].get_dis() || (v[i].get_dis() == v[i + 1].get_dis() && (v[i].get_p().get_name() > v[i + 1].get_p().get_name()))) {
-                    PlayerNode tempObj = v[i];
+                if (v[i]->get_dis() < v[i + 1]->get_dis() || (v[i]->get_dis() == v[i + 1]->get_dis() && (v[i]->get_p().get_name() > v[i + 1]->get_p().get_name()))) {
+                    PlayerNode* tempObj = v[i];
                     v[i] = v[i + 1];     
                     v[i + 1] = tempObj;
                 }
             }
         }
-        for(int i=0; i<(int)v.size(); i++) {cout<<v[i].get_p().get_name()<<" played "<<v[i].get_dis() <<" years for "<<v[i].get_p().get_team() <<endl;}
+        for(int i=0; i<(int)v.size(); i++) {cout<<v[i]->get_p().get_name()<<" played "<<v[i]->get_dis() <<" years for "<<v[i]->get_p().get_team() <<endl;}
     }
 }
 
@@ -94,15 +94,25 @@ int main(int argc, char** argv){
         while(getline(inputfile, line)){
             Parser command(line);
             play.insert(PlayerNode(Player(command.getArg1(),command.getArg3(),command.getArg2())));
-            //cout<<play.paat(play.get_size()-1)->get_at()<<endl;
             for(int i=0; i<play.get_size()-1; i++){
                 if(play.paat(i)->get_p().get_team()==play.paat(play.get_size()-1)->get_p().get_team() && play.paat(i)->get_p().get_year()==play.paat(play.get_size()-1)->get_p().get_year()){
-                    // cout<<play.paat(i)->get_p().get_name()<<' '<<play.paat(i)->get_p().get_year()<<' '<< play.paat(i)->get_p().get_team()<<play.paat(play.get_size()-1)->get_p().get_name()<<' '<<play.paat(play.get_size()-1)->get_p().get_year()<<' '<< play.paat(play.get_size()-1)->get_p().get_team()<<endl;
                     play.paat(i)->get_bb()->insert(play.paat(play.get_size()-1));
                     play.paat(play.get_size()-1)->get_bb()->insert(play.paat(i));
                 }
             } 
-        }  
+        }
+
+        for(int i=0; i<play.get_size()-1; i++){
+            for(int j=0; j<play.get_size()-1; j++){
+                if(play.paat(i)->get_p().get_name()==play.paat(j)->get_p().get_name() && play.paat(i)->get_p().get_year()!=play.paat(j)->get_p().get_year()){
+                    //cout<< play.paat(i)->get_p().get_name()<< " "<<play.paat(j)->get_p().get_name()<<endl;
+                    play.paat(j)->get_bb()->add(play.paat(i)->get_bb());
+                    play.paat(i)->get_bb()->add(play.paat(j)->get_bb());
+                }
+            }
+        }
+
+          
     }
     else{cout<<"File not found"<<endl;}
     inputfile.close();
@@ -113,11 +123,13 @@ int main(int argc, char** argv){
     }
 
     if(in != "" && da == "" && sa != "" && te == ""){
-        vector<PlayerNode> p;
+        vector<PlayerNode*> p;
         int i = 0;
-        while(play.findN(sa,i)){
+        while(play.findN(sa,i)!=nullptr){
             PlayerNode* t = play.findN(sa,i);
-            if(t->get_p().get_name()==sa) p.push_back(*t);
+            if (t == nullptr){break;}
+            //cout << t->get_p().get_name()<< " count : "<<i<<endl;
+            if(t->get_p().get_name()==sa) p.push_back(t);
             i++;
         }
         if(p.size()==0) cout<<sa<<" does not appear in the input file"<<endl;
@@ -126,11 +138,11 @@ int main(int argc, char** argv){
     }
 
     if(in != "" && da == "" && sa != "" && te != ""){
-        vector<PlayerNode> p;
+        vector<PlayerNode*> p;
         int i= play.find(sa)->get_at();
         while(i<play.get_capacity()){
-            if(!play.at(i).get_nu())break;
-            if(play.at(i).get_p().get_name()==sa && play.at(i).get_p().get_team()==te) p.push_back(play.at(i));
+            if(!play.at(i)->get_nu())break;
+            if(play.at(i)->get_p().get_name()==sa && play.at(i)->get_p().get_team()==te) p.push_back(play.at(i));
             i++;
         }
         if(p.size()==0) cout<<sa<<" has never played for the "<< te <<endl;
@@ -138,23 +150,25 @@ int main(int argc, char** argv){
     }
 
     if(in != "" && da == "" && sa == "" && te != ""){
-        vector<PlayerNode> p;
+        vector<PlayerNode*> p;
         bool flag = true;
         for(long int i=0; i<play.get_size();i++){
             flag = true;
             if (play.paat(i)->get_p().get_team() != te) continue;
             for(long int j=0; j<(int)p.size();j++){
-                if(play.paat(i)->get_p().get_name() == p.at(j).get_p().get_name() && play.aat(i).get_p().get_team() == p.at(j).get_p().get_team()) {p.at(j).inc_dis(); flag = false; break;}
+                if(play.paat(i)->get_p().get_name() == p.at(j)->get_p().get_name() && play.paat(i)->get_p().get_team() == p.at(j)->get_p().get_team()) {p.at(j)->inc_dis(); flag = false; break;}
             }
             if(flag){
-                p.push_back(play.aat(i));
-                p.at(p.size()-1).set_dis(1);
+                p.push_back(play.paat(i));
+                p.at(p.size()-1)->set_dis(1);
             }
         }
         PrintSorted(p,2);
     }
 
+
     if(in != "" && da != "" && sa != "" && te == ""){
+        play.find(sa)->get_bb()->inorderPrint();
         play.B(sa,da);
     }
 

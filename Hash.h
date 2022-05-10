@@ -10,7 +10,7 @@ class Hash{
         int hashcaller(string name);
         PlayerNode* find(string name);
         void B(string f, string s);
-        PlayerNode at(int i);
+        PlayerNode* at(int i);
         PlayerNode aat(int i);
         PlayerNode* paat(int i);
         void insert(PlayerNode pl);

@@ -90,15 +90,15 @@ T* BST<T>::search(string d){
 	node* curr;
 	curr = root;
 	while(curr != NULL){
-		if((curr->data).get_str() == d){
-			return &(curr->data);
+		if((curr->data->get_p().get_name()) == d){
+			return (curr->data);
 		}
 		else{
-			if(d > (curr->data).get_str()) curr = curr->right;
+			if(d > curr->data->get_p().get_name()) curr = curr->right;
 			else curr = curr->left;
 		}
 	}
-    return NULL;
+    return nullptr;
 }
 
 template <typename T>
@@ -113,13 +113,14 @@ void BST<T>::destroy(struct node *&node){
 template<typename T>
 void BST<T>::inorderPrint() {
 	inorderPrintHelper(root);
+	cout<<endl;
 }
 
 template<typename T>
 void BST<T>::inorderPrintHelper(struct node *&node) {
     if ( node != NULL ) { 
         inorderPrintHelper( node->left );  
-        cout << node->data->get_p().get_name() << " ";    
+        cout << node->data->get_p().get_name() << " "<<node->data->get_p().get_year();    
         inorderPrintHelper( node->right);   
     }
 }
@@ -140,6 +141,7 @@ template<typename T>
 void BST<T>::BFHelper(struct node *&root,struct node *&node, vector<T*> &vec, T*& t) {
 	if(node!=nullptr){
 		
+		if (node->left != nullptr) {BFHelper(root,node->left,vec, t);}
 
 		if(node->data->get_color()=="White"){
 			node->data->set_color("Gray");
@@ -149,8 +151,22 @@ void BST<T>::BFHelper(struct node *&root,struct node *&node, vector<T*> &vec, T*
 			node->data->set_prev(t);
 			vec.push_back(node->data);
 		}
-		if (node->left != nullptr) {BFHelper(root,node->left,vec, t);}
 		if (node->right != nullptr) {BFHelper(root,node->right,vec, t);}
+	}
+}
+
+template<typename T>
+void BST<T>::add(BST<T> *x){
+	addHelper(root,x);
+}
+
+template<typename T>
+void BST<T>::addHelper(struct node *&root, BST<T> *x){
+	if(root!=nullptr){
+		addHelper(root->left,x);
+		cout <<"Yes: " <<root->data->get_p().get_name()<<" "<<root->data->get_p().get_year() <<endl;
+		if (x->search(root->data->get_p().get_name()) == nullptr){x->insert(root->data);}
+		addHelper(root->right,x);
 	}
 }
 
