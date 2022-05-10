@@ -130,27 +130,27 @@ BST<T>::~BST(){
 }
 
 template<typename T>
-void BST<T>::BF(vector<T*> &vec) {
-	BFHelper(root,vec);
+void BST<T>::BF(vector<T*> &vec, T*& t) {
+	node* curr;
+	curr = root;
+	BFHelper(root,curr,vec, t);
 }
 
 template<typename T>
-void BST<T>::BFHelper(struct node *&node, vector<T*> &vec) {
-	cout << "PPPPPPPPPPP "<< root->data->get_p().get_name()<<endl;
+void BST<T>::BFHelper(struct node *&root,struct node *&node, vector<T*> &vec, T*& t) {
 	if(node!=nullptr){
-		//cout<< node->data->get_p().get_name()<<endl;
 		
-		if (node->left != nullptr) {BFHelper(node->left,vec);}
 
 		if(node->data->get_color()=="White"){
 			node->data->set_color("Gray");
-			cout << "Hello PP " << root->data->get_nu() << endl;
-			node->data->set_prev(root->data);
-			node->data->set_dis(root->data->get_dis()+1);
+			//cout<< node->data->get_p().get_name()<<endl;
+			// cout << "Hello PP " << root->data->get_nu() << endl;
+			node->data->set_dis(t->get_dis()+1);
+			node->data->set_prev(t);
 			vec.push_back(node->data);
 		}
-		if (node->right != nullptr) {BFHelper(node->right,vec);}
-		cout << "KKK" << endl;
+		if (node->left != nullptr) {BFHelper(root,node->left,vec, t);}
+		if (node->right != nullptr) {BFHelper(root,node->right,vec, t);}
 	}
 }
 
