@@ -139,10 +139,11 @@ int main(int argc, char** argv){
 
     if(in != "" && da == "" && sa != "" && te != ""){
         vector<PlayerNode*> p;
-        int i= play.find(sa)->get_at();
-        while(i<play.get_capacity()){
-            if(!play.at(i)->get_nu())break;
-            if(play.at(i)->get_p().get_name()==sa && play.at(i)->get_p().get_team()==te) p.push_back(play.at(i));
+        int i= 0;
+        while(play.findN(sa,i)!=nullptr){
+            PlayerNode* t = play.findN(sa,i);
+            if (t == nullptr){break;}
+            if(t->get_p().get_name()==sa && t->get_p().get_team()==te) p.push_back(t);
             i++;
         }
         if(p.size()==0) cout<<sa<<" has never played for the "<< te <<endl;

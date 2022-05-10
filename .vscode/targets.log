@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Tue May 10 12:37:04 2022
+# Make data base, printed on Tue May 10 19:32:47 2022
 
 # Variables
 
@@ -76,7 +76,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_15853_0dU3w4EIjl
+KRB5CCNAME = FILE:/tmp/krb5cc_15853_cD2UnD5ezE
 # environment
 XDG_SESSION_TYPE = tty
 # automatic
@@ -106,7 +106,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/bturgay1/.vscode-server/bin/57fd6d0195bb9b9d1b49f6da5db789060795de47/bin/remote-cli:/home/bturgay1/.config/chainenv/shims:/opt/chainenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+PATH = /home/bturgay1/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/remote-cli:/home/bturgay1/.config/chainenv/shims:/opt/chainenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
 # default
 MAKEFILES := 
 # environment
@@ -114,7 +114,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-SSH_CLIENT = 149.125.38.144 63513 22
+SSH_CLIENT = 173.226.237.130 59474 22
 # environment
 VIRTUALENVWRAPPER_SCRIPT = /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 # environment
@@ -130,7 +130,7 @@ CHAINENV_ROOT = /opt/chainenv
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-BROWSER = /home/bturgay1/.vscode-server/bin/57fd6d0195bb9b9d1b49f6da5db789060795de47/bin/helpers/browser.sh
+BROWSER = /home/bturgay1/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/bin/helpers/browser.sh
 # environment
 LOGNAME = bturgay1
 # environment
@@ -152,13 +152,13 @@ VSCODE_AGENT_FOLDER = /home/bturgay1/.vscode-server
 # makefile (from 'makefile', line 11)
 LASTNAME = Turgay
 # environment
-_ = /home/bturgay1/.vscode-server/bin/57fd6d0195bb9b9d1b49f6da5db789060795de47/node
+_ = /home/bturgay1/.vscode-server/bin/da15b6fd3ef856477bf6f4fb29ba1b7af717770d/node
 # makefile (from 'makefile', line 23)
 BIN = bin
 # environment
 XDG_RUNTIME_DIR = /run/user/15853
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/15853/vscode-ipc-55952f1c-29ae-4c42-ac51-8058f6c3b3e3.sock
+VSCODE_IPC_HOOK_CLI = /run/user/15853/vscode-ipc-39f1053b-f3b7-4968-a771-92b65b0e780a.sock
 # makefile (from 'makefile', line 18)
 TARFILE = CP$(CP_NUMBER)_$(LASTNAME)_$(USER)_$(GITUSERID).tar
 # environment
@@ -170,7 +170,7 @@ HOME = /home/bturgay1
 # environment
 J2SDKDIR = /usr/lib/jvm/java-8-oracle
 # environment
-XDG_SESSION_ID = 227726
+XDG_SESSION_ID = 118771
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -186,7 +186,7 @@ CC = g++
 # environment
 DERBY_HOME = /usr/lib/jvm/java-8-oracle/db
 # environment
-SSH_CONNECTION = 149.125.38.144 63513 128.226.114.207 22
+SSH_CONNECTION = 173.226.237.130 59474 128.226.114.200 22
 # variable set hash-table stats:
 # Load=88/1024=9%, Rehash=0, Collisions=13/135=10%
 
@@ -196,9 +196,9 @@ SSH_CONNECTION = 149.125.38.144 63513 128.226.114.207 22
 
 # Directories
 
-# . (device 54, inode 50017454128): 21 files, no impossibilities.
+# . (device 54, inode 54098907199): 19 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -208,10 +208,9 @@ SSH_CONNECTION = 149.125.38.144 63513 128.226.114.207 22
 
 # Not a target:
 Parser.h:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-08 20:51:27.075238657
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/PlayerNode.o: PlayerNode.cpp PlayerNode.h BST.h
 #  Implicit rule search has not been done.
@@ -222,36 +221,35 @@ obj/PlayerNode.o: PlayerNode.cpp PlayerNode.h BST.h
 
 obj/Player.o: Player.cpp Player.h
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-10 11:30:06.002599909
+#  Implicit/static pattern stem: ''
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/Player.o
+# automatic
+# * := 
+# automatic
+# < := Player.cpp
+# automatic
+# + := Player.cpp Player.h
+# automatic
+# % := 
+# automatic
+# ^ := Player.cpp Player.h
+# automatic
+# ? := Player.cpp Player.h
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/14=14%
 #  recipe to execute (from 'makefile', line 38):
 	$(CC) $(FLAGS) -c Player.cpp -o $@
 
 obj/main.o: main.cpp Parser.h
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  Last modified 2022-05-10 12:25:40.323226609
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/main.o
-# automatic
-# * := 
-# automatic
-# < := main.cpp
-# automatic
-# + := main.cpp Parser.h
-# automatic
-# % := 
-# automatic
-# ^ := main.cpp Parser.h
-# automatic
-# ? := main.cpp
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/14=14%
+#  Modification time never checked.
+#  File has not been updated.
 #  recipe to execute (from 'makefile', line 32):
 	$(CC) $(FLAGS) -c main.cpp -o $@
 
@@ -266,7 +264,7 @@ tar: clean
 # Not a target:
 Player.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-08 20:51:27.075238657
+#  Last modified 2022-05-10 19:30:38.416274958
 #  File has been updated.
 #  Successfully updated.
 
@@ -286,15 +284,15 @@ clean:
 # Not a target:
 Player.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-08 20:51:27.079238643
+#  Last modified 2022-05-10 19:30:38.420274944
 #  File has been updated.
 #  Successfully updated.
 
 bin/main: obj/Player.o obj/main.o obj/PlayerNode.o obj/Hash.o
-#  Implicit rule search has not been done.
-#  Last modified 2022-05-10 12:25:40.647225457
-#  File has been updated.
  
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
@@ -330,10 +328,9 @@ Hash.h:
 
 # Not a target:
 main.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-10 12:37:03.51682671
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 obj/Hash.o: Hash.cpp Hash.h
 #  Implicit rule search has not been done.
@@ -351,7 +348,7 @@ BST.h:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-08 20:51:27.087238615
+#  Last modified 2022-05-10 19:30:38.436274885
 #  File has been updated.
 #  Successfully updated.
 
@@ -375,12 +372,12 @@ PlayerNode.h:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 33 / storage = 292 B / avg = 8 B
-# current buf: size = 8162 B / used = 292 B / count = 33 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 284 B / avg = 9 B
+# current buf: size = 8162 B / used = 284 B / count = 31 / avg = 9 B
 
-# strcache performance: lookups = 62 / hit rate = 46%
+# strcache performance: lookups = 60 / hit rate = 48%
 # hash-table stats:
-# Load=33/8192=0%, Rehash=0, Collisions=0/62=0%
-# Finished Make data base on Tue May 10 12:37:04 2022
+# Load=31/8192=0%, Rehash=0, Collisions=0/60=0%
+# Finished Make data base on Tue May 10 19:32:47 2022
 
  
