@@ -26,8 +26,8 @@ class BST {
         void inorderPrint();
         void inorderPrintHelper(struct node *&node);
         void destroy(struct node *&node);
-        void BF(vector<T*> &vec,T*& t);
-        void BFHelper(struct node *&root,struct node *&node,vector<T*> &vec, T*& t);
+        void BF(vector<T*> &vec,T*& t, string str);
+        void BFHelper(struct node *&root,struct node *&node,vector<T*> &vec, T*& t, string str);
         void addHelper(struct node *&root, BST<T> *x);
         void add(BST<T> *x);
 

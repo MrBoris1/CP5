@@ -119,8 +119,8 @@ void BST<T>::inorderPrint() {
 template<typename T>
 void BST<T>::inorderPrintHelper(struct node *&node) {
     if ( node != NULL ) { 
-        inorderPrintHelper( node->left );  
-        cout << node->data->get_p().get_name() << " "<<node->data->get_p().get_year();    
+        inorderPrintHelper( node->left );
+		cout<< node->data->get_p().get_name()<<" ";
         inorderPrintHelper( node->right);   
     }
 }
@@ -131,27 +131,34 @@ BST<T>::~BST(){
 }
 
 template<typename T>
-void BST<T>::BF(vector<T*> &vec, T*& t) {
+void BST<T>::BF(vector<T*> &vec, T*& t, string str) {
 	node* curr;
 	curr = root;
-	BFHelper(root,curr,vec, t);
+	BFHelper(root,curr,vec, t, str);
 }
 
 template<typename T>
-void BST<T>::BFHelper(struct node *&root,struct node *&node, vector<T*> &vec, T*& t) {
+void BST<T>::BFHelper(struct node *&root,struct node *&node, vector<T*> &vec, T*& t, string str) {
 	if(node!=nullptr){
 		
-		if (node->left != nullptr) {BFHelper(root,node->left,vec, t);}
-
-		if(node->data->get_color()=="White"){
-			node->data->set_color("Gray");
-			//cout<< node->data->get_p().get_name()<<endl;
-			// cout << "Hello PP " << root->data->get_nu() << endl;
-			node->data->set_dis(t->get_dis()+1);
-			node->data->set_prev(t);
-			vec.push_back(node->data);
+		if (node->left != nullptr) {BFHelper(root,node->left,vec, t, str);}
+		if (str.size()>0){
+			if(node->data->get_color()=="White" && node->data->get_p().get_team()== str){
+				node->data->set_color("Gray");
+				node->data->set_dis(t->get_dis()+1);
+				node->data->set_prev(t);
+				vec.push_back(node->data);
+			}
 		}
-		if (node->right != nullptr) {BFHelper(root,node->right,vec, t);}
+		else{
+			if(node->data->get_color()=="White"){
+				node->data->set_color("Gray");
+				node->data->set_dis(t->get_dis()+1);
+				node->data->set_prev(t);
+				vec.push_back(node->data);
+		}
+		}
+		if (node->right != nullptr) {BFHelper(root,node->right,vec, t, str);}
 	}
 }
 
@@ -164,7 +171,6 @@ template<typename T>
 void BST<T>::addHelper(struct node *&root, BST<T> *x){
 	if(root!=nullptr){
 		addHelper(root->left,x);
-		cout <<"Yes: " <<root->data->get_p().get_name()<<" "<<root->data->get_p().get_year() <<endl;
 		if (x->search(root->data->get_p().get_name()) == nullptr){x->insert(root->data);}
 		addHelper(root->right,x);
 	}

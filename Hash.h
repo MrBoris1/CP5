@@ -9,14 +9,14 @@ class Hash{
         Hash();
         int hashcaller(string name);
         PlayerNode* find(string name);
-        void B(string f, string s);
+        void B(string f, string s, string str="");
         PlayerNode* at(int i);
         PlayerNode aat(int i);
         PlayerNode* paat(int i);
         void insert(PlayerNode pl);
         int get_size();
         int get_capacity();
-        void BFS(PlayerNode* p);
+        void BFS(PlayerNode* p, string str);
         PlayerNode* findN(string name,int i);
     private:
         int capacity;

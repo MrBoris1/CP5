@@ -62,7 +62,7 @@ int PlayerNode::get_nu(){
 }
 
 void PlayerNode::printPath(){
-    if(prev==nullptr) return;
+    if(prev==nullptr) { return;}
     cout<<p.get_name()<<" played with "<< prev->get_p().get_name()<<" on the "<<p.get_year()<<" "<<p.get_team()<<endl;
     prev->printPath();
 }

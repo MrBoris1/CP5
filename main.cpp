@@ -168,12 +168,12 @@ int main(int argc, char** argv){
 
 
     if(in != "" && da != "" && sa != "" && te == ""){
-        play.find(sa)->get_bb()->inorderPrint();
+        //for(int i=0; i<play.get_size();i++) play.paat(i)->get_bb()->inorderPrint();
         play.B(sa,da);
     }
 
     if(in != "" && da != "" && sa != "" && te != ""){
-        
+        play.B(sa,da,te);
         // Case 4B
     }
     //Case 4 will be done

@@ -20,8 +20,10 @@ PlayerNode* Hash::find(string name){
     return nullptr;
 }
 
-void Hash::B(string f,string s){
+void Hash::B(string f,string s, string str){
     int index = hashcaller(f);
+    int dist= capacity;
+    PlayerNode* shrt;
     while(array[index].get_nu()){
         if(array[index].get_p().get_name()==f){
             int index2 = hashcaller(s);
@@ -30,17 +32,19 @@ void Hash::B(string f,string s){
                 if(array[index2].get_p().get_name()==s){
                     //cout << "In loop: "<<array[index].get_p().get_team()<< " "<< array[index].get_p().get_year()<<" --> "<<array[index2].get_p().get_team()<< " "<< array[index2].get_p().get_year()<<endl;
                     PlayerNode* p=&(array[index]);
-                    BFS(p);
-                    if(array[index2].get_dis()!=-1) { array[index2].printPath(); return;}
+                    BFS(p, str);
+                    if(array[index2].get_dis()!=-1 && array[index2].get_dis()< dist) {dist= array[index2].get_dis();shrt= &(array[index2]); }
                 }
                 index2++;
                 index2%=capacity;
             }
-            //break;
+            
         }
         index++;
         index%=capacity;
     }
+    if(!(shrt->get_prev()==nullptr)) {shrt->printPath(); return;}
+    else{cout<<"No teammate path exists between "<< f<<" and "<< s <<endl;}
 }
 
 PlayerNode* Hash::at(int i){
@@ -86,7 +90,7 @@ int Hash::get_capacity(){
     return capacity;
 }
 
-void Hash :: BFS(PlayerNode* p){
+void Hash :: BFS(PlayerNode* p, string str){
     for(int i=0; i<get_size();i++){
         parray[i]->set_color("White");
         parray[i]->set_dis(-1);
@@ -99,7 +103,7 @@ void Hash :: BFS(PlayerNode* p){
     while(pl.size()>0){
         PlayerNode* t = pl.front();
         pl.erase(pl.begin());
-        t->get_bb()->BF(pl,t);
+        t->get_bb()->BF(pl,t, str);
         t->set_color("Black");
     }
         
