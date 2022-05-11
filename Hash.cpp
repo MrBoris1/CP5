@@ -4,7 +4,7 @@
 using namespace std;
 
 Hash::Hash(){
-    this->capacity=83;
+    this->capacity=10007;
     this->size=0;
 }
 
@@ -43,7 +43,7 @@ void Hash::B(string f,string s, string str){
         index++;
         index%=capacity;
     }
-    if(!(shrt->get_prev()==nullptr)) {shrt->printPath(); return;}
+    if(!(shrt->get_prev()==nullptr)) { cout<< f <<"'s " << s << " number is "<< shrt->get_dis()<<endl; shrt->printPath(); return;}
     else{cout<<"No teammate path exists between "<< f<<" and "<< s <<endl;}
 }
 

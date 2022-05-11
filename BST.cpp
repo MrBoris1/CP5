@@ -98,6 +98,7 @@ T* BST<T>::search(string d){
 			else curr = curr->left;
 		}
 	}
+	delete curr;
     return nullptr;
 }
 
