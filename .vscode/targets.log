@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Tue May 10 23:16:52 2022
+# Make data base, printed on Wed May 11 11:05:24 2022
 
 # Variables
 
@@ -76,7 +75,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_15853_36DgigiGTC
+KRB5CCNAME = FILE:/tmp/krb5cc_15853_wc0FnLR8tC
 # environment
 XDG_SESSION_TYPE = tty
 # automatic
@@ -114,7 +113,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-SSH_CLIENT = 173.226.237.130 52046 22
+SSH_CLIENT = 149.125.38.246 56125 22
 # environment
 VIRTUALENVWRAPPER_SCRIPT = /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 # environment
@@ -158,7 +157,7 @@ BIN = bin
 # environment
 XDG_RUNTIME_DIR = /run/user/15853
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/15853/vscode-ipc-72f82316-79b9-4fd6-96f1-f852d0d6c346.sock
+VSCODE_IPC_HOOK_CLI = /run/user/15853/vscode-ipc-001baa41-aa81-4b9e-94b4-44f867494fa8.sock
 # makefile (from 'makefile', line 18)
 TARFILE = CP$(CP_NUMBER)_$(LASTNAME)_$(USER)_$(GITUSERID).tar
 # environment
@@ -170,7 +169,7 @@ HOME = /home/bturgay1
 # environment
 J2SDKDIR = /usr/lib/jvm/java-8-oracle
 # environment
-XDG_SESSION_ID = 334009
+XDG_SESSION_ID = 16501
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -186,7 +185,7 @@ CC = g++
 # environment
 DERBY_HOME = /usr/lib/jvm/java-8-oracle/db
 # environment
-SSH_CONNECTION = 173.226.237.130 52046 128.226.114.206 22
+SSH_CONNECTION = 149.125.38.246 56125 128.226.114.204 22
 # variable set hash-table stats:
 # Load=88/1024=9%, Rehash=0, Collisions=13/130=10%
 
@@ -196,7 +195,7 @@ SSH_CONNECTION = 173.226.237.130 52046 128.226.114.206 22
 
 # Directories
 
-# . (device 58, inode 54098907199): 22 files, no impossibilities.
+# . (device 54, inode 54098907199): 22 files, no impossibilities.
 
 # 22 files, no impossibilities in 1 directories.
 
@@ -295,9 +294,9 @@ all: bin/main
 #  Successfully updated.
 
 # Not a target:
+ 
 PlayerNode.cpp:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-05-10 19:30:38.424274929
 #  File has been updated.
 #  Successfully updated.
@@ -359,6 +358,6 @@ PlayerNode.h:
 # strcache performance: lookups = 62 / hit rate = 45%
 # hash-table stats:
 # Load=34/8192=0%, Rehash=0, Collisions=0/62=0%
-# Finished Make data base on Tue May 10 23:16:52 2022
+# Finished Make data base on Wed May 11 11:05:24 2022
 
  

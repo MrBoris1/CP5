@@ -1,6 +1,6 @@
 Bizim kodumuzda okunan her linedan bir player objesi olusturulur. Player objesi playerlarin temel ozelliklerini save eder. Player objesinden PlayerNodelari olusturulur, PlayerNodun ozelliklerini ve Playerin connectionlarini Binary Search Tree icinde save eder. PlayerNode lari Hash Table icinde saklanir, (ayni zamanda her bir objenin lokasyonu kolayca access edebilmek icin vektorde saklanir) 
 
-Yeni olusturulan her Player icin onceden olusturulan Playerlarla takim arkadasligi iliskisi var mi diye kontrol edilmesi. Daha sonra ayni Playerin farkli yillar icin olan nodelarinin connection Binary search treelerinin birbirine esitlenmesi operasyonlari O(|V|2) surede yapilir
+Yeni olusturulan her Player icin onceden olusturulan Playerlarla takim arkadasligi iliskisi var mi diye kontrol edilmesi. Daha sonra ayni Playerin farkli yillar icin olan nodelarinin connection Binary search treelerinin birbirine esitlenmesi operasyonlari O((|V|*(|V|-1))/2) surede yapilir
 
 Case 0A's is time comlexity O(1), due to it only looking at one if condition.
 
