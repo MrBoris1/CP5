@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Tue May 10 21:41:36 2022
+# Make data base, printed on Tue May 10 23:16:52 2022
 
 # Variables
 
@@ -76,7 +76,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_15853_rSrdQw8RVd
+KRB5CCNAME = FILE:/tmp/krb5cc_15853_36DgigiGTC
 # environment
 XDG_SESSION_TYPE = tty
 # automatic
@@ -114,7 +114,7 @@ MOTD_SHOWN = pam
 # automatic
 ^F = $(notdir $^)
 # environment
-SSH_CLIENT = 173.226.237.130 51532 22
+SSH_CLIENT = 173.226.237.130 52046 22
 # environment
 VIRTUALENVWRAPPER_SCRIPT = /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 # environment
@@ -158,7 +158,7 @@ BIN = bin
 # environment
 XDG_RUNTIME_DIR = /run/user/15853
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/15853/vscode-ipc-a8311612-f15c-4926-9db6-2c31becfa121.sock
+VSCODE_IPC_HOOK_CLI = /run/user/15853/vscode-ipc-72f82316-79b9-4fd6-96f1-f852d0d6c346.sock
 # makefile (from 'makefile', line 18)
 TARFILE = CP$(CP_NUMBER)_$(LASTNAME)_$(USER)_$(GITUSERID).tar
 # environment
@@ -170,7 +170,7 @@ HOME = /home/bturgay1
 # environment
 J2SDKDIR = /usr/lib/jvm/java-8-oracle
 # environment
-XDG_SESSION_ID = 232658
+XDG_SESSION_ID = 334009
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -186,7 +186,7 @@ CC = g++
 # environment
 DERBY_HOME = /usr/lib/jvm/java-8-oracle/db
 # environment
-SSH_CONNECTION = 173.226.237.130 51532 128.226.114.207 22
+SSH_CONNECTION = 173.226.237.130 52046 128.226.114.206 22
 # variable set hash-table stats:
 # Load=88/1024=9%, Rehash=0, Collisions=13/130=10%
 
@@ -196,7 +196,7 @@ SSH_CONNECTION = 173.226.237.130 51532 128.226.114.207 22
 
 # Directories
 
-# . (device 54, inode 54098907199): 22 files, no impossibilities.
+# . (device 58, inode 54098907199): 22 files, no impossibilities.
 
 # 22 files, no impossibilities in 1 directories.
 
@@ -359,6 +359,6 @@ PlayerNode.h:
 # strcache performance: lookups = 62 / hit rate = 45%
 # hash-table stats:
 # Load=34/8192=0%, Rehash=0, Collisions=0/62=0%
-# Finished Make data base on Tue May 10 21:41:36 2022
+# Finished Make data base on Tue May 10 23:16:52 2022
 
  
