@@ -21,6 +21,6 @@ class Hash{
     private:
         int capacity;
         int size;
-        PlayerNode array[83];
+        PlayerNode array[10007];
         vector<PlayerNode*> parray;
 };

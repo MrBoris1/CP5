@@ -108,9 +108,6 @@ int main(int argc, char** argv){
                 if(play.paat(i)->get_p().get_name()==play.paat(j)->get_p().get_name() && play.paat(i)->get_p().get_year()!=play.paat(j)->get_p().get_year()){
                     //cout<< play.paat(i)->get_p().get_name()<< " "<<play.paat(j)->get_p().get_name()<<endl;
                     play.paat(j)->get_bb()->add(play.paat(i)->get_bb());
-        /*
-                    play.paat(i)->get_bb()->add(play.paat(j)->get_bb()); //Memory leak cuases
-        */
                 }
             }
         }
@@ -172,8 +169,9 @@ int main(int argc, char** argv){
 
 
     if(in != "" && da != "" && sa != "" && te == ""){
-        //for(int i=0; i<play.get_size();i++) play.paat(i)->get_bb()->inorderPrint();
+        // for(int i=0; i<play.get_size();i++) play.paat(i)->get_bb()->inorderPrint();
         play.B(sa,da);
+
     }
 
     if(in != "" && da != "" && sa != "" && te != ""){
