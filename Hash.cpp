@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "Hash.h"
 using namespace std;
-
+//hash
 Hash::Hash(){
     this->capacity=10007;
     this->size=0;
