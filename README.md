@@ -16,4 +16,4 @@ Case 3, The vector with the PlayerNodes' points is checked for the given team. I
 
 Case 4A, For this case, we found the shortest path between the two-player. The algorithm that determines the worst case for this case is BFS. The worst case of the BFS algorithm in the code we wrote is O(|V|+|E|)
 
-Case 4B, This case is very similar to Case 4A. BFS is advanced with each player's connection during the search and with the relationships in the specified team. The algorithm that determines the worst case for this case is BFS, and the worst case is O(|V|+|E|).
+Case 4B, This case is very similar to Case 4A. BFS is advanced with each player's connection during the search and with the relationships in the specified team. The algorithm that determines the worst case for this case is BFS, and the worst case is O(|V|+|E|). 
