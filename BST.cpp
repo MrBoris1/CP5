@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 using namespace std;
-
+//binary search tree
 template <typename T>
 BST<T>::BST() {
     root = NULL;
